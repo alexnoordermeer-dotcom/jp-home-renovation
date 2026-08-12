@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background with overlay */}
@@ -23,13 +26,13 @@ export const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-full">
-              Painting & Renovation Experts in Curaçao
+              {t.hero.badge}
             </span>
             <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Transform Your Space with <span className="text-red-500">Perfect Finish</span>
+              {t.hero.title} <span className="text-red-500">{t.hero.titleAccent}</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-xl">
-              Professional painting services for residential and commercial properties in Curaçao. Quality work, reliable service, and a finish you'll love.
+              {t.hero.subtitle}
             </p>
           </motion.div>
 
@@ -41,11 +44,11 @@ export const Hero = () => {
           >
             <Button className="bg-red-600 hover:bg-red-700 text-white h-14 px-8 text-lg rounded-full shadow-lg shadow-red-600/20" asChild>
               <a href="#contact">
-                Get a Free Quote <ArrowRight className="ml-2 w-5 h-5" />
+                {t.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
             <Button variant="outline" className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white hover:text-black h-14 px-8 text-lg rounded-full" asChild>
-              <a href="#services">Our Services</a>
+              <a href="#services">{t.hero.ctaSecondary}</a>
             </Button>
           </motion.div>
 
@@ -55,11 +58,7 @@ export const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            {[
-              "Quality Work",
-              "Reliable Service",
-              "Perfect Finish"
-            ].map((feature) => (
+            {t.hero.features.map((feature) => (
               <div key={feature} className="flex items-center gap-2 text-white/90 font-medium">
                 <CheckCircle2 className="w-5 h-5 text-red-500" />
                 <span>{feature}</span>
