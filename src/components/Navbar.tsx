@@ -31,13 +31,13 @@ export const Navbar = () => {
   const currentLang = languages.find((l) => l.code === language);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <img src="/logo-jp.jpeg" alt="J.P Home Renovation" className="h-12 w-auto rounded" />
           <div className="hidden lg:block">
-            <span className="font-bold text-xl block leading-none">J.P HOME</span>
-            <span className="text-[10px] text-gray-500 tracking-widest uppercase">Renovation & Painting</span>
+            <span className="font-display text-2xl tracking-wide block leading-none">J.P HOME</span>
+            <span className="text-[10px] text-stone-500 tracking-widest uppercase">Renovation & Painting</span>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-600 hover:text-red-600 transition-colors"
+              className="text-sm font-medium text-stone-600 hover:text-red-600 transition-colors"
             >
               {link.name}
             </a>
@@ -75,7 +75,7 @@ export const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="tel:+59995146365" className="hidden lg:flex items-center gap-2 text-sm font-semibold text-gray-700">
+            <a href="tel:+59995146365" className="hidden lg:flex items-center gap-2 text-sm font-semibold text-stone-700">
               <Phone className="w-4 h-4 text-red-600" />
               <span>+599 9 514 6365</span>
             </a>
@@ -119,12 +119,12 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 absolute w-full left-0 p-4 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-white border-b border-stone-100 absolute w-full left-0 p-4 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-lg font-medium p-2 hover:bg-gray-50 rounded"
+              className="text-lg font-medium p-2 hover:bg-stone-50 rounded"
               onClick={() => setIsOpen(false)}
             >
               {link.name}

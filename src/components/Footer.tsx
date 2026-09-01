@@ -5,13 +5,13 @@ export const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-gray-950 text-gray-400 py-20 border-t border-white/5">
+    <footer className="bg-stone-950 text-stone-400 py-20 border-t border-white/5">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <img src="/logo-jp.jpeg" alt="Logo" className="h-10 w-auto rounded" />
-              <span className="text-white font-bold text-xl">J.P HOME</span>
+              <span className="font-display text-white text-2xl tracking-wide">J.P HOME</span>
             </div>
             <p className="mb-6 leading-relaxed">
               {t.footer.about}

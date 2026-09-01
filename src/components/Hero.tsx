@@ -28,10 +28,10 @@ export const Hero = () => {
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-full">
               {t.hero.badge}
             </span>
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-display text-5xl md:text-8xl text-white mb-6 leading-[0.95] tracking-wide">
               {t.hero.title} <span className="text-red-500">{t.hero.titleAccent}</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-stone-200 mb-10 leading-relaxed max-w-xl">
               {t.hero.subtitle}
             </p>
           </motion.div>

@@ -74,6 +74,7 @@ export const translations = {
         placeholderMessage: "Tell us about your project...",
         submit: "Send Message",
         response: "We typically respond within 24 hours.",
+        required: "Please fill in your name and phone number.",
       },
     },
     footer: {
@@ -157,6 +158,7 @@ export const translations = {
         placeholderMessage: "Vertel ons over uw project...",
         submit: "Bericht Verzenden",
         response: "Wij reageren doorgaans binnen 24 uur.",
+        required: "Vul uw naam en telefoonnummer in.",
       },
     },
     footer: {
@@ -240,6 +242,7 @@ export const translations = {
         placeholderMessage: "Kontanos di bo projekto...",
         submit: "Manda Mensaje",
         response: "Normalmente nos ta kontestá den 24 ora.",
+        required: "Yena bo nòmber i number di telefòn.",
       },
     },
     footer: {
@@ -323,6 +326,7 @@ export const translations = {
         placeholderMessage: "Cuéntanos sobre tu proyecto...",
         submit: "Enviar Mensaje",
         response: "Normalmente respondemos en 24 horas.",
+        required: "Por favor complete su nombre y número de teléfono.",
       },
     },
     footer: {
