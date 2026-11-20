@@ -4,7 +4,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export const Portfolio = () => {
   const { t, language } = useLanguage();
 
-  const projects = [
+  type Localized = Record<"en" | "nl" | "pap" | "es", string>;
+  const projects: {
+    image?: string;
+    video?: string;
+    category: Localized;
+    title: Localized;
+  }[] = [
     {
       image: "/project-woning-luchtfoto.jpg",
       category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
@@ -16,23 +22,23 @@ export const Portfolio = () => {
       },
     },
     {
-      image: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&q=80&w=800",
+      video: "/portfolio-clip-dakschilderwerk.mp4",
       category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
-      title: { 
-        en: "Luxury Villa Exterior", 
-        nl: "Luxe Villa Exterieur", 
-        pap: "Pafó di Vila di Lukso", 
-        es: "Exterior de Villa de Lujo" 
+      title: {
+        en: "Roof Painting in Progress",
+        nl: "Dakschilderwerk in Uitvoering",
+        pap: "Pintamentu di Dak",
+        es: "Pintura de Techo en Proceso"
       },
     },
     {
-      image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Interior", nl: "Interieur", pap: "Paden", es: "Interior" },
-      title: { 
-        en: "Modern Living Room", 
-        nl: "Moderne Woonkamer", 
-        pap: "Sala Moderno", 
-        es: "Sala de Estar Moderna" 
+      image: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&q=80&w=800",
+      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
+      title: {
+        en: "Luxury Villa Exterior",
+        nl: "Luxe Villa Exterieur",
+        pap: "Pafó di Vila di Lukso",
+        es: "Exterior de Villa de Lujo"
       },
     },
     {
@@ -103,11 +109,23 @@ export const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <img 
-                src={project.image} 
-                alt={project.title[language]} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              {project.video ? (
+                <video
+                  src={project.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={project.title[language]}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title[language]}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                 <span className="text-red-500 font-semibold mb-2">{project.category[language]}</span>
                 <h3 className="font-display text-white text-3xl tracking-wide">{project.title[language]}</h3>
