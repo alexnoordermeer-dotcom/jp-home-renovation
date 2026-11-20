@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { PaintStroke } from "@/components/PaintStroke";
 import { Services } from "@/components/Services";
 import { Portfolio } from "@/components/Portfolio";
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -26,6 +27,7 @@ const Index = () => {
         <PaintStroke />
         <Services />
         <Portfolio />
+        <About />
         <Contact />
         <PaintStroke flip />
       </main>
