@@ -1,18 +1,12 @@
-import { Phone, MessageSquare, Menu, X, Globe } from "lucide-react";
+import { Phone, MessageSquare, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Language } from "@/i18n/translations";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   const navLinks = [
     { name: t.nav.home, href: "/" },
@@ -21,14 +15,6 @@ export const Navbar = () => {
     { name: t.nav.contact, href: "/#contact" },
   ];
 
-  const languages: { code: Language; label: string; flag: string }[] = [
-    { code: "en", label: "English", flag: "🇺🇸" },
-    { code: "nl", label: "Nederlands", flag: "🇳🇱" },
-    { code: "pap", label: "Papiamento", flag: "🇨🇼" },
-    { code: "es", label: "Español", flag: "🇪🇸" },
-  ];
-
-  const currentLang = languages.find((l) => l.code === language);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100">
@@ -42,7 +28,7 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -53,29 +39,10 @@ export const Navbar = () => {
             </a>
           ))}
           
-          <div className="flex items-center gap-4 border-l pl-6 ml-2 lg:pl-8 lg:ml-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2 px-2">
-                  <Globe className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase">{language}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className="flex items-center gap-3 cursor-pointer"
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.label}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="flex items-center gap-4 border-l pl-6 ml-2">
+            <LanguageSwitcher />
 
-            <a href="tel:+59995146365" className="hidden lg:flex items-center gap-2 text-sm font-semibold text-stone-700">
+            <a href="tel:+59995146365" className="hidden xl:flex items-center gap-2 text-sm font-semibold text-stone-700">
               <Phone className="w-4 h-4 text-red-600" />
               <span>+599 9 514 6365</span>
             </a>
@@ -90,28 +57,9 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="flex items-center gap-2 md:hidden">
-           <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase">{language}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className="flex items-center gap-3 cursor-pointer"
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.label}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          <button className="p-2" onClick={() => setIsOpen(!isOpen)}>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
+          <button className="p-2" aria-label="Menu" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -119,7 +67,7 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-stone-100 absolute w-full left-0 p-4 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
+        <div className="lg:hidden bg-white border-b border-stone-100 absolute w-full left-0 p-4 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
             <a
               key={link.name}
