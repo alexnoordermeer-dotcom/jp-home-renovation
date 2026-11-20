@@ -37,6 +37,16 @@ const projects: Project[] = [
     },
   },
   {
+    image: "/project-woning-luchtfoto.jpg",
+    category: EXTERIOR,
+    title: {
+      en: "Full Exterior & Roof Painting",
+      nl: "Complete Gevel- & Dakschildering",
+      pap: "Pintamentu Kompleto di Kas i Dak",
+      es: "Pintura Completa de Fachada y Techo",
+    },
+  },
+  {
     image: "/portfolio/zwart-dak-baai.jpg",
     category: ROOFS,
     title: {
@@ -44,46 +54,6 @@ const projects: Project[] = [
       nl: "Zwart Dak aan de Baai",
       pap: "Dak Pretu na Baai",
       es: "Techo Negro junto a la Bahía",
-    },
-  },
-  {
-    image: "/portfolio/villa-entree.jpg",
-    category: EXTERIOR,
-    title: {
-      en: "Entrance & Facade Finish",
-      nl: "Entree & Gevelafwerking",
-      pap: "Entrada i Fachada",
-      es: "Entrada y Acabado de Fachada",
-    },
-  },
-  {
-    image: "/portfolio/dak-nok-detail.jpg",
-    category: DETAILS,
-    title: {
-      en: "Roof Ridge Detail",
-      nl: "Detail Nokpannen",
-      pap: "Detaye di Dak",
-      es: "Detalle de Cumbrera",
-    },
-  },
-  {
-    video: "/portfolio/villa-rondgang.mp4",
-    category: EXTERIOR,
-    title: {
-      en: "Villa Walkthrough",
-      nl: "Rondgang Villa",
-      pap: "Un Bishita na Vila",
-      es: "Recorrido por la Villa",
-    },
-  },
-  {
-    image: "/portfolio/dak-hoogglans.jpg",
-    category: ROOFS,
-    title: {
-      en: "High-Gloss Roof Finish",
-      nl: "Hoogglans Dakafwerking",
-      pap: "Dak ku Brio",
-      es: "Techo con Acabado Brillante",
     },
   },
   {
@@ -97,13 +67,13 @@ const projects: Project[] = [
     },
   },
   {
-    image: "/project-woning-luchtfoto.jpg",
-    category: EXTERIOR,
+    image: "/portfolio/dak-nok-detail.jpg",
+    category: DETAILS,
     title: {
-      en: "Full Exterior & Roof Painting",
-      nl: "Complete Gevel- & Dakschildering",
-      pap: "Pintamentu Kompleto di Kas i Dak",
-      es: "Pintura Completa de Fachada y Techo",
+      en: "Roof Ridge Detail",
+      nl: "Detail Nokpannen",
+      pap: "Detaye di Dak",
+      es: "Detalle de Cumbrera",
     },
   },
 ];
