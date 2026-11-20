@@ -1,77 +1,154 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+type Localized = Record<"en" | "nl" | "pap" | "es", string>;
+
+type Project = {
+  image?: string;
+  video?: string;
+  category: Localized;
+  title: Localized;
+};
+
+const EXTERIOR: Localized = { en: "Exterior", nl: "Exterieur", pap: "Pafó", es: "Exterior" };
+const ROOFS: Localized = { en: "Roofs", nl: "Daken", pap: "Dak", es: "Techos" };
+const DETAILS: Localized = { en: "Details", nl: "Details", pap: "Detayenan", es: "Detalles" };
+
+const projects: Project[] = [
+  {
+    image: "/portfolio/villa-voorzijde.jpg",
+    category: EXTERIOR,
+    title: {
+      en: "Modern Villa – Full Exterior",
+      nl: "Moderne Villa – Volledig Buitenwerk",
+      pap: "Vila Moderno – Pafó Kompleto",
+      es: "Villa Moderna – Exterior Completo",
+    },
+  },
+  {
+    video: "/portfolio/dak-voor-en-na.mp4",
+    category: ROOFS,
+    title: {
+      en: "Roof Before & After",
+      nl: "Dak Voor & Na",
+      pap: "Dak Promé i Despues",
+      es: "Techo Antes y Después",
+    },
+  },
+  {
+    image: "/portfolio/zwart-dak-baai.jpg",
+    category: ROOFS,
+    title: {
+      en: "Black Roof by the Bay",
+      nl: "Zwart Dak aan de Baai",
+      pap: "Dak Pretu na Baai",
+      es: "Techo Negro junto a la Bahía",
+    },
+  },
+  {
+    image: "/portfolio/villa-entree.jpg",
+    category: EXTERIOR,
+    title: {
+      en: "Entrance & Facade Finish",
+      nl: "Entree & Gevelafwerking",
+      pap: "Entrada i Fachada",
+      es: "Entrada y Acabado de Fachada",
+    },
+  },
+  {
+    image: "/portfolio/dak-nok-detail.jpg",
+    category: DETAILS,
+    title: {
+      en: "Roof Ridge Detail",
+      nl: "Detail Nokpannen",
+      pap: "Detaye di Dak",
+      es: "Detalle de Cumbrera",
+    },
+  },
+  {
+    video: "/portfolio/villa-rondgang.mp4",
+    category: EXTERIOR,
+    title: {
+      en: "Villa Walkthrough",
+      nl: "Rondgang Villa",
+      pap: "Un Bishita na Vila",
+      es: "Recorrido por la Villa",
+    },
+  },
+  {
+    image: "/portfolio/dak-hoogglans.jpg",
+    category: ROOFS,
+    title: {
+      en: "High-Gloss Roof Finish",
+      nl: "Hoogglans Dakafwerking",
+      pap: "Dak ku Brio",
+      es: "Techo con Acabado Brillante",
+    },
+  },
+  {
+    image: "/portfolio/trap-tuinmuren.jpg",
+    category: EXTERIOR,
+    title: {
+      en: "Stairs & Garden Walls",
+      nl: "Trap & Tuinmuren",
+      pap: "Trapi i Muraya di Hardin",
+      es: "Escalera y Muros del Jardín",
+    },
+  },
+  {
+    image: "/project-woning-luchtfoto.jpg",
+    category: EXTERIOR,
+    title: {
+      en: "Full Exterior & Roof Painting",
+      nl: "Complete Gevel- & Dakschildering",
+      pap: "Pintamentu Kompleto di Kas i Dak",
+      es: "Pintura Completa de Fachada y Techo",
+    },
+  },
+];
+
+const mediaClass =
+  "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110";
+
+// Plays only while on screen, so mobile visitors don't download/play
+// videos they never scroll to.
+const PortfolioVideo = ({ src, label }: { src: string; label: string }) => {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      aria-label={label}
+      className={mediaClass}
+    />
+  );
+};
+
 export const Portfolio = () => {
   const { t, language } = useLanguage();
-
-  type Localized = Record<"en" | "nl" | "pap" | "es", string>;
-  const projects: {
-    image?: string;
-    video?: string;
-    category: Localized;
-    title: Localized;
-  }[] = [
-    {
-      image: "/project-woning-luchtfoto.jpg",
-      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
-      title: {
-        en: "Full Exterior & Roof Painting",
-        nl: "Complete Gevel- & Dakschildering",
-        pap: "Pintamentu Kompleto di Kas i Dak",
-        es: "Pintura Completa de Fachada y Techo"
-      },
-    },
-    {
-      video: "/portfolio-clip-dakschilderwerk.mp4",
-      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
-      title: {
-        en: "Roof Painting in Progress",
-        nl: "Dakschilderwerk in Uitvoering",
-        pap: "Pintamentu di Dak",
-        es: "Pintura de Techo en Proceso"
-      },
-    },
-    {
-      image: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
-      title: {
-        en: "Luxury Villa Exterior",
-        nl: "Luxe Villa Exterieur",
-        pap: "Pafó di Vila di Lukso",
-        es: "Exterior de Villa de Lujo"
-      },
-    },
-    {
-      image: "https://images.unsplash.com/photo-1652829069862-87874e119527?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Details", nl: "Details", pap: "Detayenan", es: "Detalles" },
-      title: { 
-        en: "Precision Trim Work", 
-        nl: "Precisie Afwerking", 
-        pap: "Trabou di Detaye", 
-        es: "Trabajo de Molduras" 
-      },
-    },
-    {
-      image: "https://images.unsplash.com/photo-1742900280861-32bed068938b?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
-      title: { 
-        en: "Coastal Home Revitalized", 
-        nl: "Kustwoning Gerevitaliseerd", 
-        pap: "Kas na Kosta Nobo", 
-        es: "Casa Costera Revitalizada" 
-      },
-    },
-    {
-      image: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Interior", nl: "Interieur", pap: "Paden", es: "Interior" },
-      title: { 
-        en: "Bedroom Color Palette", 
-        nl: "Slaapkamer Kleurenpalet", 
-        pap: "Paleta di Koló di Kamber", 
-        es: "Paleta de Colores de Dormitorio" 
-      },
-    },
-  ];
 
   return (
     <section id="portfolio" className="py-24 bg-stone-100">
@@ -107,23 +184,16 @@ export const Portfolio = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: (index % 3) * 0.1 }}
             >
               {project.video ? (
-                <video
-                  src={project.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-label={project.title[language]}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <PortfolioVideo src={project.video} label={project.title[language]} />
               ) : (
                 <img
                   src={project.image}
                   alt={project.title[language]}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  className={mediaClass}
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">

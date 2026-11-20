@@ -37,7 +37,7 @@ const en: Record<LegalKind, LegalDoc> = {
         heading: "3. Hosting and technical data",
         body: [
           "This website is hosted by Vercel. When you visit the site, technical data such as your IP address, browser type and the time of your visit may be logged by the hosting provider. This is needed to deliver and secure the website.",
-          "Fonts are loaded from Google Fonts and some images from external image services. Your browser then connects to those servers, which may see your IP address.",
+          "Fonts are loaded from Google Fonts. Your browser then connects to Google's servers, which may see your IP address.",
         ],
       },
       {
@@ -75,7 +75,6 @@ const en: Record<LegalKind, LegalDoc> = {
         heading: "1. Information on this website",
         body: [
           "The information on this website is general and intended to give an impression of our services. We take care to keep it accurate and up to date, but cannot guarantee that it is complete or error-free at all times.",
-          "Some images on this website are illustrative and do not necessarily show our own projects.",
         ],
       },
       {
@@ -138,7 +137,7 @@ const nl: Record<LegalKind, LegalDoc> = {
         heading: "3. Hosting en technische gegevens",
         body: [
           "Deze website wordt gehost door Vercel. Bij een bezoek kunnen technische gegevens zoals uw IP-adres, type browser en het tijdstip van uw bezoek door de hostingpartij worden vastgelegd. Dat is nodig om de website te leveren en te beveiligen.",
-          "Lettertypen worden geladen via Google Fonts en sommige afbeeldingen via externe beelddiensten. Uw browser maakt dan verbinding met die servers, die daarbij uw IP-adres kunnen zien.",
+          "Lettertypen worden geladen via Google Fonts. Uw browser maakt dan verbinding met de servers van Google, die daarbij uw IP-adres kunnen zien.",
         ],
       },
       {
@@ -176,7 +175,6 @@ const nl: Record<LegalKind, LegalDoc> = {
         heading: "1. Informatie op deze website",
         body: [
           "De informatie op deze website is algemeen en bedoeld om een indruk te geven van onze diensten. Wij doen ons best om deze juist en actueel te houden, maar kunnen niet garanderen dat zij altijd volledig en foutloos is.",
-          "Sommige afbeeldingen op deze website zijn ter illustratie en tonen niet altijd onze eigen projecten.",
         ],
       },
       {
@@ -239,7 +237,7 @@ const es: Record<LegalKind, LegalDoc> = {
         heading: "3. Alojamiento y datos técnicos",
         body: [
           "Este sitio web está alojado en Vercel. Al visitarlo, el proveedor de alojamiento puede registrar datos técnicos como su dirección IP, tipo de navegador y la hora de su visita. Esto es necesario para ofrecer y proteger el sitio web.",
-          "Las fuentes se cargan desde Google Fonts y algunas imágenes desde servicios de imágenes externos. Su navegador se conecta entonces a esos servidores, que pueden ver su dirección IP.",
+          "Las fuentes se cargan desde Google Fonts. Su navegador se conecta entonces a los servidores de Google, que pueden ver su dirección IP.",
         ],
       },
       {
@@ -277,7 +275,6 @@ const es: Record<LegalKind, LegalDoc> = {
         heading: "1. Información en este sitio web",
         body: [
           "La información de este sitio web es de carácter general y pretende dar una idea de nuestros servicios. Procuramos que sea correcta y esté actualizada, pero no podemos garantizar que sea siempre completa o libre de errores.",
-          "Algunas imágenes de este sitio web son ilustrativas y no muestran necesariamente nuestros propios proyectos.",
         ],
       },
       {
