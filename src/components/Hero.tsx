@@ -11,8 +11,8 @@ export const Hero = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=2000" 
-          alt="Professional Painting" 
+          src="/project-woning-luchtfoto.jpg"
+          alt="J.P Home Renovation project in Curaçao"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />

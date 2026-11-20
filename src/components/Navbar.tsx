@@ -15,10 +15,10 @@ export const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
 
   const navLinks = [
-    { name: t.nav.home, href: "#" },
-    { name: t.nav.services, href: "#services" },
-    { name: t.nav.portfolio, href: "#portfolio" },
-    { name: t.nav.contact, href: "#contact" },
+    { name: t.nav.home, href: "/" },
+    { name: t.nav.services, href: "/#services" },
+    { name: t.nav.portfolio, href: "/#portfolio" },
+    { name: t.nav.contact, href: "/#contact" },
   ];
 
   const languages: { code: Language; label: string; flag: string }[] = [

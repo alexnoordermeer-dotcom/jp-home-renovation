@@ -1,8 +1,10 @@
 import { Phone, MessageSquare, MapPin, Instagram, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { legalTexts } from "@/i18n/legal";
 
 export const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-stone-950 text-stone-400 py-20 border-t border-white/5">
@@ -29,10 +31,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">{t.footer.links}</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="hover:text-red-500 transition-colors">{t.nav.home}</a></li>
-              <li><a href="#services" className="hover:text-red-500 transition-colors">{t.nav.services}</a></li>
-              <li><a href="#portfolio" className="hover:text-red-500 transition-colors">{t.nav.portfolio}</a></li>
-              <li><a href="#contact" className="hover:text-red-500 transition-colors">{t.nav.contact}</a></li>
+              <li><a href="/" className="hover:text-red-500 transition-colors">{t.nav.home}</a></li>
+              <li><a href="/#services" className="hover:text-red-500 transition-colors">{t.nav.services}</a></li>
+              <li><a href="/#portfolio" className="hover:text-red-500 transition-colors">{t.nav.portfolio}</a></li>
+              <li><a href="/#contact" className="hover:text-red-500 transition-colors">{t.nav.contact}</a></li>
             </ul>
           </div>
 
@@ -67,8 +69,8 @@ export const Footer = () => {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>© {new Date().getFullYear()} J.P Home Renovation Painting Services. {t.footer.rights}</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-white">{legalTexts[language].privacy.title}</Link>
+            <Link to="/terms" className="hover:text-white">{legalTexts[language].terms.title}</Link>
           </div>
         </div>
       </div>
