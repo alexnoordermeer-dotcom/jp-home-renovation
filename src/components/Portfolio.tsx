@@ -6,6 +6,16 @@ export const Portfolio = () => {
 
   const projects = [
     {
+      image: "/project-woning-luchtfoto.jpg",
+      category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
+      title: {
+        en: "Full Exterior & Roof Painting",
+        nl: "Complete Gevel- & Dakschildering",
+        pap: "Pintamentu Kompleto di Kas i Dak",
+        es: "Pintura Completa de Fachada y Techo"
+      },
+    },
+    {
       image: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&q=80&w=800",
       category: { en: "Residential", nl: "Residentieel", pap: "Kasnan", es: "Residencial" },
       title: { 
@@ -23,16 +33,6 @@ export const Portfolio = () => {
         nl: "Moderne Woonkamer", 
         pap: "Sala Moderno", 
         es: "Sala de Estar Moderna" 
-      },
-    },
-    {
-      image: "https://images.unsplash.com/photo-1600508774764-4ce704363d66?auto=format&fit=crop&q=80&w=800",
-      category: { en: "Commercial", nl: "Commercieel", pap: "Komersial", es: "Comercial" },
-      title: { 
-        en: "Office Space Refresh", 
-        nl: "Kantoorruimte Vernieuwing", 
-        pap: "Renobashon di Ofisina", 
-        es: "Renovación de Oficinas" 
       },
     },
     {
