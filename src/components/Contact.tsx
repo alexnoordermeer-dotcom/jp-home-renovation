@@ -6,6 +6,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { showError } from "@/utils/toast";
+import { SocialButtons } from "./SocialButtons";
 
 const WHATSAPP_NUMBER = "59996946365";
 
@@ -84,6 +85,10 @@ export const Contact = () => {
                       <p className="text-red-50">Curaçao</p>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-12">
+                  <SocialButtons variant="contact" />
                 </div>
               </motion.div>
             </div>

@@ -1,4 +1,5 @@
-import { Phone, MessageSquare, MapPin, Instagram, Facebook } from "lucide-react";
+import { Phone, MessageSquare, MapPin } from "lucide-react";
+import { SocialButtons } from "./SocialButtons";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { legalTexts } from "@/i18n/legal";
@@ -18,14 +19,7 @@ export const Footer = () => {
             <p className="mb-6 leading-relaxed">
               {t.footer.about}
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all">
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
+            <SocialButtons variant="footer" />
           </div>
 
           <div>
