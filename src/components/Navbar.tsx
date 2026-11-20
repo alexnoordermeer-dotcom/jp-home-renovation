@@ -12,6 +12,7 @@ export const Navbar = () => {
     { name: t.nav.home, href: "/" },
     { name: t.nav.services, href: "/#services" },
     { name: t.nav.portfolio, href: "/#portfolio" },
+    { name: t.nav.about, href: "/#about" },
     { name: t.nav.contact, href: "/#contact" },
   ];
 
@@ -28,7 +29,7 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <div className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
